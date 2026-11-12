@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blush Avenue — Your Everyday Pretty Things</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#e8bfc5;--deep:#a9667a;--pale:#f8e9e9;--cream:#fffaf8;--ink:#49363a;--muted:#7d6468;--line:#ead9d8;--gold:#b99a70;--card:#fffdfc;--pat:#bd7d89;--patop:.17;
+--serif:"Playfair Display",Georgia,serif;--display:"Italiana",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--pale:#3a2a2e;--cream:#2b2023;--ink:#f6e8e8;--muted:#cdb4b8;--line:#4d3a3f;--card:#33262a;--deep:#e3a3b3;--pat:#e8bfc5;--patop:.12}}
+:root[data-theme="dark"]{--pale:#3a2a2e;--cream:#2b2023;--ink:#f6e8e8;--muted:#cdb4b8;--line:#4d3a3f;--card:#33262a;--deep:#e3a3b3;--pat:#e8bfc5;--patop:.12}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--sans);background-color:var(--cream);-webkit-font-smoothing:antialiased;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg fill='none' stroke='%23bd7d89' stroke-width='.7' opacity='.55'%3E%3Cpath d='M32 4L60 32L32 60L4 32Z'/%3E%3Cpath d='M32 14L50 32L32 50L14 32Z'/%3E%3C/g%3E%3Cg fill='%23bd7d89' opacity='.6'%3E%3Ccircle cx='32' cy='32' r='2.2'/%3E%3Ccircle cx='0' cy='0' r='1.6'/%3E%3Ccircle cx='64' cy='0' r='1.6'/%3E%3Ccircle cx='0' cy='64' r='1.6'/%3E%3Ccircle cx='64' cy='64' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+background-blend-mode:normal}
+body::after{content:"";position:fixed;inset:0;background:var(--cream);opacity:calc(1 - var(--patop)*2.6);z-index:-1;pointer-events:none}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
+.ann{background:var(--ink);color:var(--cream);text-align:center;padding:10px;font-size:9px;letter-spacing:2.4px;text-transform:uppercase}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:86px;padding:0 clamp(18px,5vw,80px);background:color-mix(in srgb,var(--cream) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;gap:30px;align-items:center}
+nav>a,.dd>button{font-size:10px;letter-spacing:1.7px;text-transform:uppercase;background:none;border:0;cursor:pointer;padding:30px 0}
+nav>a:hover,.dd>button:hover{color:var(--deep)}
+.dd{position:relative}
+.menu{position:absolute;top:78px;left:-28px;min-width:230px;background:var(--card);border:1px solid var(--line);padding:14px 0;box-shadow:0 22px 40px rgba(73,54,58,.14);opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s}
+.menu:before{content:"";position:absolute;top:-6px;left:40px;width:10px;height:10px;background:var(--card);border-left:1px solid var(--line);border-top:1px solid var(--line);transform:rotate(45deg)}
+.dd:hover .menu,.dd:focus-within .menu,.dd.open .menu{opacity:1;visibility:visible;transform:none}
+.menu a{display:flex;justify-content:space-between;padding:11px 26px;font-family:var(--serif);font-size:16px}
+.menu a small{font:9px var(--sans);letter-spacing:1px;color:var(--muted);align-self:center;text-transform:uppercase}
+.menu a:hover{background:var(--pale);color:var(--deep)}
+.brand{text-align:center}.brand b{display:block;font:400 34px var(--display);letter-spacing:5px;line-height:1}
+.brand span{display:block;font-size:7px;letter-spacing:3.2px;text-transform:uppercase;color:var(--deep);margin-top:7px}
+.acts{display:flex;justify-content:flex-end;gap:20px}
+.acts button{background:none;border:0;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;cursor:pointer}
+.bag{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--pale);font-size:9px;margin-left:4px}
+.burger{display:none!important;font-size:22px!important}
+.wrap{padding:0 clamp(20px,6vw,90px)}
+.eyebrow{font-size:9px;letter-spacing:3.2px;text-transform:uppercase;color:var(--deep);font-weight:600}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0}
+.orn{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold);margin:18px 0}
+.orn:before,.orn:after{content:"";width:64px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn:after{transform:scaleX(-1)}
+/* hero */
+.hero{margin:34px clamp(14px,4vw,60px);border:1px solid var(--gold);padding:10px;background:var(--cream)}
+.hero-in{border:1px solid var(--line);background:linear-gradient(135deg,var(--pale),var(--card) 60%,var(--pale));text-align:center;padding:clamp(60px,10vw,120px) 24px;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(46px,7vw,92px);line-height:1.04;letter-spacing:-2px;margin:18px 0}
+.hero h1 em{color:var(--deep)}
+.hero p{font:17px/1.8 var(--serif);color:var(--muted);max-width:430px;margin:0 auto 30px}
+.cta{display:inline-block;background:var(--deep);color:#fff;padding:16px 28px;font-size:9px;letter-spacing:2.2px;text-transform:uppercase;border:1px solid var(--deep);transition:.25s}
+.cta:hover{background:var(--ink);border-color:var(--ink);transform:translateY(-2px)}
+.cta.ghost{background:transparent;color:var(--ink);border-color:var(--gold);margin-left:10px}
+.sprig{position:absolute;width:150px;opacity:.5;color:var(--deep)}
+.sprig.l{left:3%;top:12%}.sprig.r{right:3%;bottom:10%;transform:rotate(180deg)}
+/* sections */
+.sec{padding:80px 0 20px;text-align:center}
+.sec h2{font-size:clamp(32px,4vw,46px);margin-top:12px}
+.sec p.lead{max-width:500px;margin:14px auto 0;color:var(--muted);font-size:12px;line-height:1.9}
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:44px}
+.cat{background:var(--card);border:1px solid var(--line);padding:10px;transition:.3s}
+.cat:hover{transform:translateY(-6px);box-shadow:0 20px 36px rgba(73,54,58,.12);border-color:var(--gold)}
+.cat .art{aspect-ratio:.9}.cat h3{font-size:19px;margin:16px 0 4px}.cat small{display:block;font-size:9px;letter-spacing:1.6px;text-transform:uppercase;color:var(--deep);padding-bottom:10px}
+.art{display:grid;place-items:center;background:radial-gradient(circle at 50% 38%,var(--card),var(--pale) 80%);color:var(--deep)}
+.art.b{background:radial-gradient(circle at 50% 38%,#fff5f2,#f0d4d6 85%);color:#a9667a}
+.art.c{background:radial-gradient(circle at 50% 38%,#fbf1e6,#ecd6c6 85%);color:#9a7a52}
+.art svg{width:56%;height:auto}
+/* category page */
+.banner{margin:34px clamp(14px,4vw,60px) 0;border:1px solid var(--gold);padding:8px}
+.banner div{background:linear-gradient(135deg,var(--pale),var(--card));border:1px solid var(--line);text-align:center;padding:64px 20px}
+.banner h1{font-size:clamp(40px,6vw,68px);margin:14px 0 10px}
+.banner p{font:16px/1.7 var(--serif);color:var(--muted);max-width:460px;margin:0 auto}
+.crumbs{font-size:9px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);padding:26px 0 0}
+.crumbs a:hover{color:var(--deep)}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:34px 0}
+.tabs a{padding:9px 16px;border:1px solid var(--line);font-size:9px;letter-spacing:1.6px;text-transform:uppercase;background:var(--card)}
+.tabs a:hover,.tabs a.on{background:var(--deep);border-color:var(--deep);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 20px;padding-bottom:90px}
+.card{background:var(--card);border:1px solid var(--line);padding:9px}
+.card .art{aspect-ratio:.86;position:relative;overflow:hidden}
+.card .art svg{transition:transform .5s}.card:hover .art svg{transform:scale(1.08) rotate(-2deg)}
+.tag{position:absolute;top:10px;left:10px;background:var(--card);color:var(--deep);padding:6px 9px;font-size:8px;letter-spacing:1.3px;text-transform:uppercase}
+.add{position:absolute;left:10px;right:10px;bottom:10px;background:var(--card);border:1px solid var(--line);padding:12px;font-size:9px;letter-spacing:1.6px;text-transform:uppercase;cursor:pointer;opacity:0;transform:translateY(8px);transition:.25s}
+.card:hover .add,.add:focus{opacity:1;transform:none}.add:hover{background:var(--deep);color:#fff}
+.info{display:flex;justify-content:space-between;gap:8px;padding:14px 4px 4px;font-size:12px;font-weight:500}.info span:last-child{color:var(--deep)}
+.cap{padding:0 4px 8px;font:italic 13px var(--serif);color:var(--muted)}
+.bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.veil{position:absolute;inset:0;background:linear-gradient(180deg,color-mix(in srgb,var(--cream) 60%,transparent),color-mix(in srgb,var(--cream) 74%,transparent))}
+.hero-txt{position:relative;z-index:1;text-shadow:0 1px 16px color-mix(in srgb,var(--cream) 85%,transparent)}
+.hero p{color:var(--ink)}
+.serve{margin-top:22px;text-align:center;font:italic 15px var(--serif);color:#f3d9dc;letter-spacing:.5px}.serve span{color:var(--gold);margin:0 8px}
+.co{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;padding:50px 0 90px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);padding:30px}
+.panel h3{font-size:24px;margin-bottom:20px}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f label{font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);display:block}
+.f .w{grid-column:1/-1}
+.f input,.f select,.f textarea{width:100%;margin-top:6px;padding:12px;border:1px solid var(--line);background:var(--cream);color:var(--ink);font:13px var(--sans);text-transform:none;letter-spacing:0}
+.secure{margin-top:26px;padding:18px 20px;border:1px dashed var(--gold);background:var(--pale);font-size:12px;line-height:1.8;color:var(--muted)}.secure b{color:var(--ink)}.secure p{margin:6px 0 0}
+.line{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:12px}.line small{color:var(--muted)}
+.qty button{width:24px;height:24px;border:1px solid var(--line);background:var(--cream);cursor:pointer;color:var(--ink)}
+.invh{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--gold);padding-bottom:22px}.ibrand{font:400 28px var(--display);letter-spacing:4px}.invh small{display:block;font-size:10px;color:var(--muted);line-height:1.7}
+.inv table{width:100%;border-collapse:collapse;font-size:12px}.inv th{font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 0;border-bottom:1px solid var(--line)}.inv td{padding:12px 0;border-bottom:1px solid var(--line)}.inv .r{text-align:right}
+.acts2{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:80px}
+.story-p{max-width:680px;margin:0 auto;padding:60px 0 20px;text-align:center}.story-p h2{font-size:clamp(28px,3.5vw,38px);margin:12px 0 14px}.story-p p{font-size:13px;line-height:2.1;color:var(--muted);margin:0 0 18px}
+.duo{display:flex;justify-content:center;gap:28px;margin:46px 0 10px}.duo .art{width:150px;height:190px;border:1px solid var(--gold);border-radius:75px 75px 0 0}
+@media(max-width:860px){.co{grid-template-columns:1fr}.f{grid-template-columns:1fr}}
+@media print{header,footer,.ann,.noprint,.toast,.news{display:none!important}body,body::after{background:#fff}.panel{border:0}}
+/* story + news + footer */
+.story{margin:80px clamp(14px,4vw,60px) 0;border:1px solid var(--gold);padding:8px}
+.story div{border:1px solid var(--line);background:var(--card);text-align:center;padding:70px 22px}
+.story h2{font-size:clamp(30px,4vw,44px);margin:14px auto;max-width:560px;line-height:1.2}
+.story p{max-width:470px;margin:0 auto;font-size:12px;line-height:2;color:var(--muted)}
+.news{margin-top:80px;background:var(--pale);padding:76px 20px;text-align:center}
+.news h2{font-size:36px;margin:12px 0}.news p{font-size:11px;color:var(--muted);margin:0 0 24px}
+.nf{display:flex;max-width:420px;margin:auto;border-bottom:1px solid var(--deep)}
+.nf input{flex:1;min-width:0;background:none;border:0;outline:0;padding:14px 4px;font:12px var(--sans);color:var(--ink)}
+.nf button{background:none;border:0;color:var(--deep);font-size:9px;letter-spacing:1.6px;text-transform:uppercase;cursor:pointer}
+footer{background:#3b2a2e;color:#fbeeee;padding:52px clamp(20px,6vw,90px) 24px}
+.ft{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;padding-bottom:40px}
+.ft b{font:400 32px var(--display);letter-spacing:5px}.ft small{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#d8b5b8;margin-top:10px}
+.fl{display:flex;gap:22px;flex-wrap:wrap;align-items:start}.fl a{font-size:9px;letter-spacing:1.4px;text-transform:uppercase}
+.fb{border-top:1px solid rgba(255,255,255,.18);padding-top:18px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:9px;color:#cbb8b8}
+.toast{position:fixed;bottom:calc(22px + env(safe-area-inset-bottom,0px));left:50%;transform:translate(-50%,20px);background:var(--ink);color:var(--cream);padding:13px 20px;font-size:11px;opacity:0;pointer-events:none;transition:.25s;z-index:30}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:960px){.cats{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.add{opacity:1;transform:none}}
+@media(max-width:700px){
+header{height:74px;grid-template-columns:44px 1fr 70px}.burger{display:block!important}.brand b{font-size:26px;letter-spacing:3px}.brand span{font-size:6px}
+nav{display:none;position:absolute;top:74px;left:0;right:0;background:var(--cream);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 20px;border-bottom:1px solid var(--line)}nav.open{display:flex}
+nav>a,.dd>button{padding:16px 0;text-align:left;width:100%}
+.menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;padding:0 0 0 10px;display:none;background:none}.menu:before{display:none}.dd.open .menu{display:block}.dd:hover .menu{display:none}.dd.open:hover .menu{display:block}
+.acts .s{display:none}.cats{grid-template-columns:repeat(2,1fr)}.sprig{display:none}.cta.ghost{margin:12px 0 0}.grid{gap:18px 12px}}
+</style>
+</head>
+<body>
+<div class="ann">A little something pretty is on its way · Welcome to Blush Avenue</div>
+<header>
+<button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+<nav id="nav" aria-label="Main">
+<a href="#home">Home</a>
+<div class="dd" id="dd"><button type="button" aria-haspopup="true">Shop ▾</button><div class="menu" id="menu"></div></div>
+<a href="#story">Our Story</a>
+<a href="#contact">Contact</a>
+</nav>
+<a class="brand" href="#home"><b>BLUSH AVENUE</b><span>Your everyday pretty things</span></a>
+<div class="acts"><button class="s" onclick="toast('Search is coming soon.')">Search</button><button onclick="location.hash='#bag'">Bag<span class="bag" id="bag">0</span></button></div>
+</header>
+<main id="app"></main>
+<footer>
+<div class="ft"><div><b>BLUSH AVENUE</b><small>Your everyday pretty things</small></div><div class="fl" id="fl"></div></div>
+<div class="fb"><span>© 2026 Blush Avenue. All rights reserved.</span><span>Made with a little love ♡</span></div>
+<div class="serve">We proudly serve <span>✧</span> Manhattan <span>✧</span> Brooklyn <span>✧</span> Queens <span>✧</span> The Bronx</div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const G='<g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">';
+const ART={
+jewelry:G+'<path d="M15 20Q50 95 85 20"/><path d="M50 74l7 9-7 12-7-12z" fill="currentColor" fill-opacity=".25"/><circle cx="50" cy="50" r="2" fill="currentColor"/></g>',
+hair:G+'<path d="M50 52C28 28 10 34 14 54c3 18 24 6 36-2 12 8 33 20 36 2 4-20-14-26-36-2z" fill="currentColor" fill-opacity=".2"/><circle cx="50" cy="52" r="6" fill="currentColor" fill-opacity=".4"/><path d="M44 58L32 86M56 58l12 28"/></g>',
+bags:G+'<path d="M22 44h56l5 44H17z" fill="currentColor" fill-opacity=".2"/><path d="M35 44V32a15 15 0 0130 0v12"/><circle cx="50" cy="66" r="4"/></g>',
+beauty:G+'<rect x="34" y="50" width="32" height="42" rx="8" fill="currentColor" fill-opacity=".22"/><rect x="42" y="22" width="16" height="28" rx="3"/><path d="M42 62q8-6 16 0"/></g>',
+gifts:G+'<rect x="18" y="46" width="64" height="44" fill="currentColor" fill-opacity=".18"/><rect x="14" y="34" width="72" height="14"/><path d="M50 34v56M50 34C38 16 26 28 38 34M50 34c12-18 24-6 12 0"/></g>'};
+const CATS={
+jewelry:{n:"Jewelry",t:"Delicate pieces for every day",d:"Gold-tone hoops, dainty layers and little rings to wear on repeat.",p:[["Everyday Gold Hoops",18,"The little finishing touch","Favorite"],["Golden Hour Necklace",24,"Made for your everyday stack","Layer"],["Little Love Ring",16,"A pretty piece to keep close","Sweet"],["Pearl Drop Earrings",22,"Soft shimmer, always","New"],["Petal Charm Bracelet",20,"A wrist full of whimsy","Gift"],["Moonlight Studs",14,"Tiny and totally lovely","Everyday"]]},
+hair:{n:"Hair Accessories",t:"Finishing touches for your hair",d:"Silky bows, pretty clips and pearl pins for effortless styling.",p:[["Satin Bow Barrette",12,"A sweet statement","Trending"],["Pearl Claw Clip",15,"Easy, elegant updos","Favorite"],["Blush Silk Scrunchie",9,"Soft on every strand","Soft"],["Petal Hair Pins",11,"Set of six","New"],["Ribbon Headband",14,"Polished in a second","Classic"],["Gold Leaf Comb",17,"Tuck it in and shine","Elegant"]]},
+bags:{n:"Bags & Charms",t:"Small bags, big mood",d:"Mini bags and charming add-ons that make every outfit yours.",p:[["The Little Mini Bag",38,"Small bag, big mood","Mini"],["Pearl Strap Pouch",28,"Just the essentials","New"],["Bow Bag Charm",13,"Dress up any bag","Charm"],["Blush Tote",42,"Roomy and refined","Everyday"],["Heart Keychain",10,"A little love to carry","Cute"],["Evening Clutch",34,"For nights to remember","Evening"]]},
+beauty:{n:"Nails & Beauty",t:"Little rituals, pretty results",d:"Polishes, press-ons and beauty finds for your self-care moments.",p:[["Rose Cream Polish",9,"Soft, glossy, flawless","Favorite"],["Press-On Nail Set",14,"Salon look at home","Trending"],["Petal Lip Balm",8,"Hydration with a blush","Soft"],["Pearl Nail File",7,"Gentle and glam","New"],["Silk Makeup Pouch",16,"Beauty on the go","Pouch"],["Rosewater Mist",15,"A refreshing little spritz","Fresh"]]},
+gifts:{n:"Gifts for Her",t:"Thoughtful, just-because gifts",d:"Beautifully chosen sets for birthdays, bridesmaids and best friends.",p:[["The Blush Gift Box",32,"Ready to give","Bestseller"],["Birthday Treat Set",28,"Made to make her smile","Birthday"],["Bridesmaid Trio",36,"Three sweet pieces","Bridal"],["Self-Care Bundle",30,"A little time for her","Relax"],["Mini Jewelry Gift Set",26,"Sparkle in a box","Sparkle"],["Thank-You Treat",18,"Small but meaningful","Thanks"]]}};
+const K=Object.keys(CATS),$=s=>document.querySelector(s);
+const art=(k,i=0)=>`<div class="art ${["","b","c"][i%3]}"><svg viewBox="0 0 100 100" aria-hidden="true">${ART[k]}</svg>`;
+function home(){return `
+<section class="hero"><div class="hero-in">${VIDEO?`<video class="bgv" src="${VIDEO}" autoplay muted loop playsinline aria-hidden="true"></video>`:""}<div class="veil"></div><div class="hero-txt">
+<svg class="sprig l" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10 95C30 60 50 40 85 10M30 70c-8-10-8-18-2-24 8 4 8 14 2 24zM46 52c-8-8-9-16-4-23 8 3 10 13 4 23zM62 36c-6-9-6-16 0-21 7 4 7 13 0 21z"/></svg>
+<svg class="sprig r" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10 95C30 60 50 40 85 10M30 70c-8-10-8-18-2-24 8 4 8 14 2 24zM46 52c-8-8-9-16-4-23 8 3 10 13 4 23zM62 36c-6-9-6-16 0-21 7 4 7 13 0 21z"/></svg>
+<span class="eyebrow">A little beauty in the everyday</span>
+<h1>Pretty things.<br><em>Lovely moments.</em></h1>
+<div class="orn">✧</div>
+<p>Accessories, thoughtful little finds and everyday favorites — chosen to make the ordinary feel a little more special.</p>
+<a class="cta" href="#jewelry">Shop the collection</a><a class="cta ghost" href="#gifts">Gifts for her</a>
+</div></div></section>
+<section class="sec wrap"><span class="eyebrow">Find your something</span><h2>A collection for every little mood.</h2><div class="orn">✧</div>
+<p class="lead">Each collection has its own little corner — step inside and see everything we love.</p>
+<div class="cats">${K.map((k,i)=>`<a class="cat" href="#${k}">${art(k,i)}</div><h3>${CATS[k].n}</h3><small>Explore ↗</small></a>`).join("")}</div></section>
+<section class="sec wrap" style="padding-bottom:0"><span class="eyebrow">Freshly picked</span><h2>The little edit</h2><div class="orn">✧</div></section>
+<div class="wrap" style="padding-top:24px"><div class="grid" style="padding-bottom:0">${["jewelry","jewelry","bags","gifts"].map((k,i)=>prod(k,CATS[k].p[i===1?1:i===0?0:0],i)).join("")}</div></div>
+${story()}${news()}`}
+function prod(k,p,i){return `<article class="card">${art(k,i)}<span class="tag">${p[3]}</span><button class="add" data-n="${p[0]}" data-p="${p[1]}" data-k="${k}">Add to bag +</button></div><div class="info"><span>${p[0]}</span><span>$${p[1]}</span></div><div class="cap">${p[2]}</div></article>`}
+function story(){return `<section class="story"><div><span class="eyebrow">A note from Blush Avenue</span><h2>It’s the little things that make it yours.</h2><div class="orn">♡</div><p>Blush Avenue is a celebration of personal style, thoughtful details and the joy of finding something that feels just right. A little treat for yourself, or a thoughtful gift for someone you love.</p><p style="margin-top:22px"><a class="cta" href="#story">Read our story</a></p></div></section>`}
+function news(){return `<section class="news"><span class="eyebrow">A little note from us</span><h2>Stay in the pretty loop.</h2><p>Be the first to hear about new finds, sweet surprises and shop updates.</p><form class="nf" id="nf"><input type="email" required placeholder="Your email address" aria-label="Email address"><button>Count me in ↗</button></form></section>`}
+const VIDEO=""; // paste your hero video link (.mp4) between the quotes
+const SHOP="andrea.ortega016@gmail.com";
+let CART=[],ORDER=null;
+try{CART=JSON.parse(localStorage.getItem("ba_cart")||"[]")}catch(e){}
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const money=n=>"$"+n.toFixed(2);
+const total=()=>CART.reduce((a,i)=>a+i.p*i.q,0);
+function updateBag(){$("#bag").textContent=CART.reduce((a,i)=>a+i.q,0)}
+function save(){try{localStorage.setItem("ba_cart",JSON.stringify(CART))}catch(e){}updateBag()}
+function addItem(n,p,k){const f=CART.find(i=>i.n===n);f?f.q++:CART.push({n,p,k,q:1});save()}
+function storyPage(){return `<section class="banner"><div><span class="eyebrow">Our story</span><h1>Two girls, one little dream</h1><div class="orn">♡</div><p>Blush Avenue began with a simple wish: to build something of our own, doing something we truly love.</p></div></section>
+<div class="wrap"><div class="story-p"><span class="eyebrow">How it began</span><h2>We wanted something more.</h2>
+<p>We were two girls who felt there had to be something else out there for us — a life with a little more color, a little more purpose and a lot more of what makes us happy.</p>
+<p>So we decided to stop waiting and open a business of our own, built around the things we love: pretty accessories, thoughtful details and the joy of finding the perfect little something.</p>
+<div class="duo">${art("jewelry",0)}</div>${art("hair",1)}</div></div></div>
+<div class="story-p"><div class="orn">✧</div><span class="eyebrow">What we believe</span><h2>The little things matter.</h2>
+<p>Every piece in Blush Avenue is chosen with care — for the girl who treats herself, and for the friend who wants to give something thoughtful. Your everyday should feel a little more special.</p>
+<p>We are proud to serve Manhattan, Brooklyn, Queens and the Bronx, and we are so grateful you are here.</p>
+<p style="margin-top:28px"><a class="cta" href="#jewelry">Shop the collection</a></p></div></div>${news()}`}
+function bagPage(){
+if(!CART.length)return `<section class="banner"><div><span class="eyebrow">Your bag</span><h1>Your bag is empty</h1><div class="orn">✧</div><p>Add a little something pretty and it will wait for you here.</p><p style="margin-top:24px"><a class="cta" href="#jewelry">Start shopping</a></p></div></section>`;
+return `<section class="banner"><div><span class="eyebrow">Checkout</span><h1>Your bag</h1></div></section>
+<div class="wrap"><form class="co" id="co"><div class="panel"><h3>Delivery details</h3><div class="f">
+<label>First name<input name="fn" required autocomplete="given-name"></label>
+<label>Last name<input name="ln" required autocomplete="family-name"></label>
+<label class="w">Email<input name="em" type="email" required autocomplete="email"></label>
+<label class="w">Phone<input name="ph" type="tel" autocomplete="tel"></label>
+<label class="w">Street address<input name="ad" required autocomplete="address-line1"></label>
+<label>Apt / Suite<input name="ap" autocomplete="address-line2"></label>
+<label>Borough<select name="bo" required><option value="">Select…</option><option>Manhattan</option><option>Brooklyn</option><option>Queens</option><option>The Bronx</option></select></label>
+<label>ZIP code<input name="zp" required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code"></label>
+<label class="w">Notes (optional)<textarea name="nt" rows="2"></textarea></label></div>
+<div class="secure"><b>🔒 Card payment — coming soon</b><p>Card details will be entered through an encrypted payment provider (such as Stripe or Square), so card numbers never pass through this page. No payment is taken for now.</p></div></div>
+<aside class="panel"><h3>Order summary</h3>${CART.map((i,x)=>`<div class="line"><span style="flex:1">${esc(i.n)}<br><small>${money(i.p)}</small></span><span class="qty"><button type="button" data-q="${x}" data-d="-1" aria-label="Remove one">−</button> ${i.q} <button type="button" data-q="${x}" data-d="1" aria-label="Add one">+</button></span><span>${money(i.p*i.q)}</span></div>`).join("")}
+<div class="line"><span style="flex:1">Subtotal</span><b>${money(total())}</b></div>
+<div class="line"><span style="flex:1">Shipping</span><span>To be confirmed</span></div>
+<button class="cta" style="width:100%;margin-top:22px;cursor:pointer">Place order</button></aside></form></div>`}
+function wireBag(){updateBag();
+document.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{const x=+b.dataset.q,i=CART[x];i.q+=+b.dataset.d;if(i.q<1)CART.splice(x,1);save();render()});
+const cf=$("#cf");if(cf)cf.onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormData(cf));location.href="mailto:"+SHOP+"?subject="+encodeURIComponent("Message from "+d.nm)+"&body="+encodeURIComponent(d.ms+"\n\nFrom: "+d.nm+" ("+d.em+")");toast("Opening your email app…")};
+const f=$("#co");if(f)f.onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormData(f));
+ORDER={no:"BA-"+new Date().toISOString().slice(2,10).replace(/-/g,"")+"-"+Math.floor(1000+Math.random()*9000),date:new Date().toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"}),items:CART.map(i=>({...i})),total:total(),c:d};
+CART=[];save();location.hash="#invoice"}}
+function invoicePage(){const o=ORDER,c=o.c;
+const txt=["New Blush Avenue order "+o.no,o.date,"",...o.items.map(i=>i.q+" x "+i.n+" - "+money(i.p*i.q)),"Subtotal: "+money(o.total),"","Ship to:",c.fn+" "+c.ln,c.ad+(c.ap?", "+c.ap:""),c.bo+", NY "+c.zp,"Email: "+c.em,"Phone: "+(c.ph||"-"),"Notes: "+(c.nt||"-")].join("\n");
+const mail="mailto:"+SHOP+"?subject="+encodeURIComponent("Order "+o.no)+"&body="+encodeURIComponent(txt);
+return `<section class="banner noprint"><div><span class="eyebrow">Thank you</span><h1>Order received</h1><div class="orn">♡</div><p>Your order number is <b>${o.no}</b>. A confirmation will be emailed to ${esc(c.em)} once email sending is connected at launch.</p></div></section>
+<div class="wrap"><div class="panel inv" style="margin:40px auto 24px;max-width:760px">
+<div class="invh"><div><b class="ibrand">BLUSH AVENUE</b><small>Your everyday pretty things<br>${SHOP}</small></div><div style="text-align:right"><h3 style="margin:0">Invoice</h3><small>Order ${o.no}<br>${o.date}</small></div></div>
+<div class="f" style="margin:28px 0;font-size:13px;line-height:1.8"><div><label>Ship to</label>${esc(c.fn)} ${esc(c.ln)}<br>${esc(c.ad)}${c.ap?", "+esc(c.ap):""}<br>${esc(c.bo)}, NY ${esc(c.zp)}</div><div><label>Contact</label>${esc(c.em)}<br>${esc(c.ph||"")}</div></div>
+<table><tr><th>Item</th><th class="r">Qty</th><th class="r">Price</th><th class="r">Total</th></tr>${o.items.map(i=>`<tr><td>${esc(i.n)}</td><td class="r">${i.q}</td><td class="r">${money(i.p)}</td><td class="r">${money(i.p*i.q)}</td></tr>`).join("")}
+<tr><td colspan="3" class="r"><b>Subtotal</b></td><td class="r"><b>${money(o.total)}</b></td></tr></table>
+<p style="font-size:11px;color:var(--muted);line-height:1.8;margin:22px 0 0">Shipping and payment to be arranged. ${c.nt?"Notes: "+esc(c.nt):""}</p></div>
+<div class="acts2 noprint"><button class="cta" style="cursor:pointer" onclick="print()">Print invoice</button><a class="cta ghost" style="margin:0" href="${mail}">Email order to Blush Avenue</a><a class="cta ghost" style="margin:0" href="#home">Keep shopping</a></div></div>`}
+function contactPage(){return `<section class="banner"><div><span class="eyebrow">Contact</span><h1>Say hello</h1><div class="orn">♡</div><p>Questions about an order, a gift or a collaboration? We would love to hear from you.</p></div></section>
+<div class="wrap"><div class="co"><form class="panel" id="cf"><h3>Send us a note</h3><div class="f">
+<label class="w">Your name<input name="nm" required></label>
+<label class="w">Your email<input name="em" type="email" required></label>
+<label class="w">Message<textarea name="ms" rows="6" required></textarea></label></div>
+<button class="cta" style="margin-top:22px;cursor:pointer">Send message</button></form>
+<aside class="panel"><h3>Blush Avenue</h3><div class="f" style="grid-template-columns:1fr;font-size:13px;line-height:1.8"><div><label>Email</label><a href="mailto:${SHOP}" style="color:var(--deep)">${SHOP}</a></div><div><label>We serve</label>Manhattan, Brooklyn, Queens and the Bronx</div><div><label>Pickup &amp; delivery</label>Orders are sent from the post office after your order is placed.</div></div></aside></div></div>`}
+function cat(k){const c=CATS[k];return `
+<section class="banner"><div><span class="eyebrow">Blush Avenue Collection</span><h1>${c.n}</h1><div class="orn">✧</div><p>${c.d}</p></div></section>
+<div class="wrap"><div class="crumbs"><a href="#home">Home</a> &nbsp;/&nbsp; Shop &nbsp;/&nbsp; ${c.n}</div>
+<div class="tabs">${K.map(x=>`<a href="#${x}" class="${x===k?"on":""}">${CATS[x].n}</a>`).join("")}</div>
+<div class="grid">${c.p.map((p,i)=>prod(k,p,i)).join("")}</div></div>${news()}`}
+function render(){
+const h=(location.hash||"#home").slice(1);
+const nav=$("#nav");nav.classList.remove("open");$("#burger").textContent="☰";$("#dd").classList.remove("open");
+$("#app").innerHTML=CATS[h]?cat(h):h==="story"?storyPage():h==="bag"?bagPage():h==="contact"?contactPage():h==="invoice"&&ORDER?invoicePage():home();
+window.scrollTo(0,0);
+$("#app").querySelectorAll(".add").forEach(b=>b.onclick=()=>{addItem(b.dataset.n,+b.dataset.p,b.dataset.k);toast(b.dataset.n+" added to your bag ♡")});
+wireBag();
+const f=$("#nf");if(f)f.onsubmit=e=>{e.preventDefault();toast("Thank you! Signup will be connected at launch.");f.reset()}}
+$("#menu").innerHTML=K.map(k=>`<a href="#${k}">${CATS[k].n}<small>${CATS[k].p.length} pieces</small></a>`).join("");
+$("#fl").innerHTML=K.map(k=>`<a href="#${k}">${CATS[k].n}</a>`).join("")+'<a href="#story">Our Story</a><a href="#contact">Contact</a>';
+$("#burger").onclick=()=>{const o=$("#nav").classList.toggle("open");$("#burger").textContent=o?"×":"☰";$("#burger").setAttribute("aria-expanded",o)};
+$("#dd>button").onclick=()=>$("#dd").classList.toggle("open");
+let tt;function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("show"),2400)}
+addEventListener("hashchange",render);render();
+</script>
+</body>
+</html>
